@@ -1,0 +1,11 @@
+;counts to a specific number
+mv #10 RBC1 ; the value we want to count to
+label count
+add RM1 #1 RM1
+or RM1 RBC1 RTV ;this will create the flags
+jmpUL #count ; jump to label cout if the last ALU operation gave the flags Unsigned lesser
+             ; one needs to put a # in front of the label name since otherwise will be interpreted as a register
+
+write RM1 #0 ; write RM1 to ram at address 0
+mv #5+5= out2
+mv #10| out2 ;use a space character becouse otherwise it will be interpreted as a number

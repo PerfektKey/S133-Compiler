@@ -1,0 +1,68 @@
+; this documents everything about S133 assembly
+
+;reg names:
+;   RM1  = Math Register 1
+;   RM2  = Math Register 2
+;   RGP1 = General purpose Register 1
+;   RGP2 = General purpose 2
+;   RBC1 = Boolean Calculation Register 1
+;   RBC2 = Calculation Register 2
+;   RTV  = temporary value 
+;   RAF  = ALU flags 
+;       the RAF register is special since it stores the last alu operations flags
+;       the 1st bit represents carry
+;       the 2nd bit represents signed less
+;       the 3rd bit represents unsigned less
+;       the 4t bit represents equal
+;       the 5t bit represents signed greater
+;       the 6t bit represents unsigned greater
+;       the 7 and 8 bit are free like all of the other byte
+
+;   CLK  = this writes to the clock
+;   out1-7 = external outputs
+
+;legend
+; immreg means register or immideate
+; imm    means immideate
+;   write immideates using the '#' character
+; reg    means register
+
+;operations:
+;   mv    [immreg] [reg]
+
+;   push  [immreg]
+;   pop   [reg]
+
+;   jmp   [immreg]
+;   jmpC  [immreg]
+;   jmpSL [immreg]
+;   jmpUL [immreg]
+;   jmpEQ [immreg]
+;   jmpSG [immreg]
+;   jmpUG [immreg]
+
+;   call [immreg]
+;   ret
+
+;   write [immreg] [immreg]
+;   read  [immreg] [reg]
+
+;   store [immreg] [immreg]
+;   load  [immreg] [reg]
+
+;   add   [immreg] [immreg] [reg]
+;   sub   [immreg] [immreg] [reg]
+;   mod   [immreg] [immreg] [reg]
+;   div   [immreg] [immreg] [reg]
+;   mult  [immreg] [immreg] [reg]
+;   multl [immreg] [immreg] [reg]
+;   rotl  [immreg] [immreg] [reg]
+;   rotr  [immreg] [immreg] [reg]
+;   not   [immreg] [reg]
+;   neg   [immreg] [reg]gfn
+;   and   [immreg] [immreg] [reg]
+;   nand  [immreg] [immreg] [reg]
+;   or    [immreg] [immreg] [reg]
+;   nor   [immreg] [immreg] [reg]
+;   xor   [immreg] [immreg] [reg]
+;   xnor  [immreg] [immreg] [reg]

@@ -1,0 +1,11 @@
+;this outputs hello world
+;its is also possible to give characters as immideates
+;but they can only be a maximum of 4 character long
+mv #Hell RM1
+;out2 is connected to the console
+mv RM1 out2
+; | is the character to use if you want a space
+mv #o|Wo RM1
+mv RM1 out2
+mv #rld! RM1
+mv RM1 out2
