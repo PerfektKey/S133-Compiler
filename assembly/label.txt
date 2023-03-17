@@ -1,0 +1,6 @@
+jmp #JMPH
+mv #10 RM1
+label JMPH
+or RM1 #10 RM2
+jmpEQ #1
+write RM1 #0

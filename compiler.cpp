@@ -30,6 +30,36 @@ int main(){
     std::map<std::string, unsigned int> labels;
     if (myfile.is_open())
     {
+        while ( std::getline(myfile,line) ){
+            std::string word;
+            bool isLabel= false;
+            ++lineIndex;
+
+            for (int i = 0;i < line.length();i++){
+                if (line.at(i) == ';'){
+                    --lineIndex;
+                    break;
+                }
+                if (line.at(i) != ' ' && i+1 != line.length()){
+                    word += line.at(i);
+                    continue;
+                }else{
+                    if (word != "label" && !isLabel){
+                        break;
+                    }
+                    if (isLabel){
+                        word += line.at(i);
+                        //std::cout << " label " << word << " on line " << lineIndex << "\n";
+                        labels["#"+word] = lineIndex-1;
+                    }
+                    isLabel = true;
+                    word.clear();
+                }
+            }
+        }
+        myfile.clear();
+        myfile.seekg(0);
+        lineIndex = 0;
         while ( std::getline (myfile,line) ){
             std::string word;
             unsigned int tmpBinary[64]{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
@@ -780,8 +810,8 @@ int main(){
                     }
                     
                 }else{
-                    if (isLabel){
-                        labels["#"+word] = lineIndex-1;
+                   if (isLabel){
+                        //labels["#"+word] = lineIndex-1;
                         
                         break;
                     }
